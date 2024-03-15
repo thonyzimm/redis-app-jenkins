@@ -2,6 +2,12 @@ pipeline {
     agent any
 
     stages {
+        stage('Subir ambiente Vagrant') {
+            steps {
+                sh 'vagrant up'
+            }
+        }
+
         stage('Build da imagem docker') {
             steps {
                 sh 'docker build -t devops/app .'
